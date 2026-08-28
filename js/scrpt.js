@@ -27,4 +27,17 @@ function sendOrder() {
     // })
     // .catch(error => console.error('Error:', error));
     alert('Orden enviada con éxito!');
+    document.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const mainElement = document.querySelector('.main');
+    const backgroundElement = document.querySelector('.background-image');
+
+    if (scrollPosition > 100) { // Ajusta este valor según tu necesidad
+        mainElement.style.height = 'auto';
+        backgroundElement.style.backgroundImage = "url('../images/fondohome2.png')";
+    } else {
+        mainElement.style.height = '100vh';
+        backgroundElement.style.backgroundImage = "url('../images/fondohome.png')";
+    }
+});
 }
