@@ -1,0 +1,275 @@
+ollama run qwen2.5-coder:14b
+
+### 1. **Estructura de Archivos**
+Primero, crea una estructura de directorios que te permita organizar tus archivos de manera eficiente. Aquí hay
+una propuesta de estructura:
+
+```
+/your-project-name
+  ├── index.html          # Página Home
+  ├── catalogo.html       # Página Catalogo
+  ├── item-details.html   # Página de detalles del item
+  ├── assets
+  │   ├── images         # Imágenes de los items
+  │   ├── styles.css      # Archivo de estilo CSS
+  │   ├── script.js      # Archivo de script JavaScript
+  ├── order.html          # Página de confirmación de orden
+  ├── order.js            # Script para manejar la orden de compra
+  └── README.md           # Documentación del proyecto
+```
+
+### 2. **Archivos de Código**
+
+#### 2.1. `index.html`
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Nuestra Tienda</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Contenido de la página Home -->
+    </main>
+    <footer>
+        <p>Copyright © 2023</p>
+    </footer>
+</body>
+</html>
+```
+
+#### 2.2. `catalogo.html`
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="item1">
+            <h2>Item 1</h2>
+            <img src="assets/images/item1.jpg" alt="Item 1">
+            <p><strong>Precio:</strong> $100.00 ARS</p>
+            <button onclick="window.location.href='item-details.html?id=1'">Ver Detalle</button>
+            <button onclick="addToCart(1)">Agregar al Carrito</button>
+        </section>
+        <!-- Agrega más secciones para otros items -->
+    </main>
+    <footer>
+        <p>Copyright © 2023</p>
+    </footer>
+    <script src="assets/script.js"></script>
+</body>
+</html>
+```
+
+#### 2.3. `item-details.html`
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Item</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Detalles del Item</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Nombre del Item</h2>
+            <img src="assets/images/item1.jpg" alt="Item 1">
+            <p><strong>Descripción:</strong> Descripción detallada del item.</p>
+            <p><strong>Precio:</strong> $100.00 ARS</p>
+            <button onclick="addToCart(1)">Agregar al Carrito</button>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2023</p>
+    </footer>
+    <script src="assets/script.js"></script>
+</body>
+</html>
+```
+
+#### 2.4. `assets/styles.css`
+```css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+```
+
+#### 2.5. `assets/script.js`
+```javascript
+let cart = [];
+
+function addToCart(itemId) {
+    cart.push(itemId);
+    alert('Item agregado al carrito!');
+}
+
+function sendOrder() {
+    // Aquí puedes implementar la lógica para enviar el carrito al email
+    // Por ejemplo, puedes usar Fetch API para enviar un POST a un servidor
+    // que maneje la recepción de la orden y envío del email.
+    // Ejemplo:
+    // fetch('/send-order', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({ items: cart })
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     if (data.success) {
+    //         alert('Orden enviada con éxito!');
+    //     } else {
+    //         alert('Hubo un error al enviar la orden.');
+    //     }
+    // })
+    // .catch(error => console.error('Error:', error));
+    alert('Orden enviada con éxito!');
+}
+```
+
+#### 2.6. `order.html`
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Orden</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Confirmar Orden</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Detalles de la Orden</h2>
+            <ul id="orderItems"></ul>
+            <p><strong>Total:</strong> <span id="totalPrice">$0.00 ARS</span></p>
+            <button onclick="sendOrder()">Enviar Orden</button>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2023</p>
+    </footer>
+    <script src="assets/order.js"></script>
+</body>
+</html>
+```
+
+#### 2.7. `order.js`
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    const orderItems = document.getElementById('orderItems');
+    const totalPrice = document.getElementById('totalPrice');
+    const items = JSON.parse(localStorage.getItem('cart')) || [];
+
+    items.forEach(item => {
+        const itemElement = document.createElement('li');
+        itemElement.textContent = `Item ${item} - $100.00 ARS`; // Ajusta el precio según sea necesario
+        orderItems.appendChild(itemElement);
+    });
+
+    totalPrice.textContent = `$${items.length * 100.00} ARS`; // Ajusta el precio según sea necesario
+});
+```
+
+### 3. **Pasos Adicionales**
+1. **Imágenes**: Coloca las imágenes de los items en la carpeta `assets/images/`.
+2. **Página de Detalles de Item**: Modifica `item-details.html` para que tome el `id` del item de la URL y
+muestre la información correspondiente.
+3. **Funcionalidad de Carrito**: Implementa la lógica para agregar items al carrito y mostrar el carrito en
+`order.html`.
+4. **Envío de Orden**: Implementa la lógica para enviar el carrito al email utilizando un servidor back-end.
+
+### 4. **Publicación en GitHub Pages**
+1. Inicializa tu repositorio en GitHub.
+2. Sube todos los archivos a tu repositorio.
+3. Ve a la configuración de tu repositorio en GitHub y habilita GitHub Pages.
+4. Selecciona la rama `main` (o `master` si es tu caso) y el directorio raíz.
+5. Haz clic en `Save`.
