@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Confirmar Orden</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Nuestra Tienda</h1>
+        <h1>Confirmar Orden</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -17,10 +17,16 @@
         </nav>
     </header>
     <main>
-        <!-- Contenido de la página Home -->
+        <section>
+            <h2>Detalles de la Orden</h2>
+            <ul id="orderItems"></ul>
+            <p><strong>Total:</strong> <span id="totalPrice">$0.00 ARS</span></p>
+            <button onclick="sendOrder()">Enviar Orden</button>
+        </section>
     </main>
     <footer>
         <p>Copyright © 2023</p>
     </footer>
+    <script src="assets/order.js"></script>
 </body>
 </html>

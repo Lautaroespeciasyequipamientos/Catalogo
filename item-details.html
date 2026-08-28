@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Detalles del Item</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Nuestra Tienda</h1>
+        <h1>Detalles del Item</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -17,10 +17,17 @@
         </nav>
     </header>
     <main>
-        <!-- Contenido de la página Home -->
+        <section>
+            <h2>Nombre del Item</h2>
+            <img src="assets/images/item1.jpg" alt="Item 1">
+            <p><strong>Descripción:</strong> Descripción detallada del item.</p>
+            <p><strong>Precio:</strong> $100.00 ARS</p>
+            <button onclick="addToCart(1)">Agregar al Carrito</button>
+        </section>
     </main>
     <footer>
         <p>Copyright © 2023</p>
     </footer>
+    <script src="assets/script.js"></script>
 </body>
 </html>
