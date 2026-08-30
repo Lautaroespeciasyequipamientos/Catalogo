@@ -5,6 +5,8 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;   
@@ -41,19 +43,20 @@ nav ul li a:hover {
 }
 
 .main {
-    position: relative;
+    /*position: relative;
     overflow: hidden;
-    height: 100vh;
+    height: 100vh;*/
     background-image: url('./images/homefondo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; /* Asegúrate de que el main tenga una altura definida */
+    min-height: 100vh; /* Asegúrate de que el main tenga una altura definida */
     margin: 0;
     padding: 0;
     position: relative;
     width: 100%;
     max-width: 100%;
+    z-index: 0;
 }
 
 .background-image {
@@ -66,6 +69,14 @@ nav ul li a:hover {
     background-position: center;
     z-index: -1;
     transition: background-image 0.5s ease;
+}
+
+/*agregado para fondo*/
+.content-container {
+    position: relative;
+    z-index: 1; /* Asegúrate de que el contenido esté sobre el fondo */
+    padding: 50px;
+    color: white; /* Ajusta el color del texto según sea necesario */
 }
 
 .content {
@@ -97,8 +108,7 @@ footer {
     width: 100%;
 }
 
-/* Media Query para pantallas pequeñas 
-    .background-image {
-        background-image: url('../images/fondohome2.png');
-    }
+/*Media Query para pantallas pequeñas */
+.background-image {
+    background-image: url('../images/fondohome2.png');
 }
