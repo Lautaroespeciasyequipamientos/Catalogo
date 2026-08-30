@@ -7,20 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;    background-image: url('./images/homefondo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-}
-
-#fondo-home {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    padding: 50px 0;
-    min-height: 100vh;
+    color: #333;   
 }
 
 header {
@@ -57,6 +44,16 @@ nav ul li a:hover {
     position: relative;
     overflow: hidden;
     height: 100vh;
+    background-image: url('./images/homefondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Asegúrate de que el main tenga una altura definida */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
 }
 
 .background-image {
