@@ -87,8 +87,7 @@ footer {
     width: 100%;
 }
 
-/* Media Query para pantallas pequeñas */
-@media (max-width: 768px) {
+/* Media Query para pantallas pequeñas 
     .background-image {
         background-image: url('../images/fondohome2.png');
     }
