@@ -191,15 +191,6 @@ footer {
   z-index: 2;
 }
 
-.nav-menu {
-  display: none;
-}
-
-.nav-menu.active {
-  display: flex;
-  flex-direction: column;
-}
-
 .cntMenu {
 
   margin: auto;
@@ -390,12 +381,7 @@ footer {
 
     box-sizing: border-box;
 }
-  
-
-
-  
-
-
+ 
   section h1 {
     font-size: 2rem;
   }
@@ -409,7 +395,7 @@ footer {
   }
 
 }
-/* --- mirar aca si trae problemas --- */
+/* --- mirar aca si traew --- */
 /* --- Fix móvil: asegurar que header no tape secciones y quitar overlays problemáticos --- */
 
 /* 1) Forzar que overlay no tape (temporal y seguro) */
