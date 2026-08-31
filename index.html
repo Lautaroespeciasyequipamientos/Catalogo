@@ -102,6 +102,101 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <!-- Script para manejo de anclas y estado activo del menú -->
+  <script>
+    (function () {
+      // Selecciona todos los enlaces del menú que tengan data-target
+      const menuLinks = Array.from(document.querySelectorAll('.cntMenu a[data-target]'));
+      const sections = Array.from(document.querySelectorAll('section[id]'));
+
+      // Función para limpiar active
+      function clearActive() {
+        menuLinks.forEach(a => a.classList.remove('active'));
+        // también limpiar en padres si tu CSS los marca distinto
+        document.querySelectorAll('.dropdownMenu .optionMenu').forEach(el => el.classList.remove('active'));
+      }
+
+      // Al hacer click en un enlace del menú: scroll suave y marcar active
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          // Dejar comportamiento por defecto para enlaces normales (ancla)
+          // pero también aseguramos scroll suave y marcado
+          const targetId = this.getAttribute('href').replace('#', '');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // marcar active en el enlace clickeado
+            clearActive();
+            this.classList.add('active');
+            // si tiene data-parent, marcar también el item padre
+            const parentKey = this.dataset.parent;
+            if (parentKey) {
+              const parentLink = document.querySelector(`.cntMenu [data-target="${parentKey}"]`);
+              if (parentLink) parentLink.classList.add('active');
+            }
+            // actualizar la URL sin recargar (opcional)
+            history.replaceState(null, '', `#${targetId}`);
+          }
+        });
+      });
+
+      // IntersectionObserver para detectar sección visible y marcar menú
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40% 0px', // dispara cuando la sección entra en la parte superior
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            // encontrar el enlace correspondiente
+            clearActive();
+            const link = document.querySelector(`.cntMenu a[href="#${id}"], .cntMenu a[data-target="${id}"]`);
+            if (link) {
+              link.classList.add('active');
+              // si el enlace tiene data-parent, marcar el padre también
+              const parentKey = link.dataset.parent;
+              if (parentKey) {
+                const parentLink = document.querySelector(`.cntMenu [data-target="${parentKey}"]`);
+                if (parentLink) parentLink.classList.add('active');
+              }
+            } else {
+              // si no hay enlace directo, intentar marcar el padre (por ejemplo, PLC-detail -> automatizacion)
+              // buscar enlaces cuyo href apunte a un id que contenga el id actual (no estricto)
+              const fallback = Array.from(document.querySelectorAll('.cntMenu a[data-target]')).find(a => {
+                const dt = a.dataset.target;
+                return dt && id.startsWith(dt);
+              });
+              if (fallback) fallback.classList.add('active');
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observamos todas las secciones
+      sections.forEach(sec => observer.observe(sec));
+
+      // Al cargar la página, si hay hash en URL, marcar el enlace correspondiente
+      window.addEventListener('load', () => {
+        const hash = location.hash.replace('#', '');
+        if (hash) {
+          const link = document.querySelector(`.cntMenu a[href="#${hash}"], .cntMenu a[data-target="${hash}"]`);
+          if (link) {
+            clearActive();
+            link.classList.add('active');
+            const parentKey = link.dataset.parent;
+            if (parentKey) {
+              const parentLink = document.querySelector(`.cntMenu [data-target="${parentKey}"]`);
+              if (parentLink) parentLink.classList.add('active');
+            }
+          }
+        }
+      });
+    })();
+  </script>
     
     <!-- BOTÓN WHATSAPP -->
     <a class="whatsapp-btn" href="https://wa.me/5492236730550" target="_blank" aria-label="WhatsApp">💬</a>
