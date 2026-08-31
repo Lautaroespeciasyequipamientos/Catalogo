@@ -82,3 +82,364 @@ body, html {
     }
 
 }
+
+/* BOTÓN WHATSAPP */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+/* =========================
+   DROPDOWNS
+========================= */
+
+.dropdownMenu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #111;
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    z-index: 1000;
+}
+
+.dropdownMenu:hover .dropdownContent {
+    display: block;
+}
+
+/* SUBMENU */
+
+.dropdownSubMenu {
+    width: 100%;
+}
+
+.dropdownSubContent {
+    display: none;
+    width: 100%;
+}
+
+.dropdownSubMenu:hover .dropdownSubContent {
+    display: block;
+}
+
+/* ITEMS */
+
+.subOptionMenu,
+.subSubOptionMenu {
+
+    display: block;
+
+    padding: 10px 16px;
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: 0.2s;
+}
+
+.subOptionMenu:hover,
+.subSubOptionMenu:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.subSubOptionMenu {
+    padding-left: 28px;
+    font-size: 0.92rem;
+    opacity: 0.85;
+}
+
+/* MENÚ */
+.cntIconMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 2em;
+  z-index: 2;
+}
+
+.cntMenu {
+
+  margin: auto;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-color: rgba(11, 15, 20, 0.9);
+
+  z-index: 10;
+
+  padding: 80px 20px 30px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 0.5em;
+
+  overflow-y: auto;
+
+  max-height: 100dvh;
+}
+
+.cntMenu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+/* IconMenu and navigation menu */
+
+.visibleIcon { display: block; }
+.hiddenIcon { display: none; }
+
+/* .visibleMenu { display: block; } */
+.hiddenMenu { display: none; }
+
+/* IconMenu and navigation menu */
+@media (min-width: 768px) {
+
+  .cntIconMenu {
+    display: none;
+  }
+
+  .cntMenu {
+
+    position: fixed;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: auto;
+
+    max-height: unset;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    background: rgba(0,0,0,0.6);
+
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 2em;
+
+    overflow: visible;
+  }
+
+  .dropdownMenu {
+    position: relative;
+    width: auto;
+  }
+
+  .dropdownContent {
+
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #111;
+
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    z-index: 1000;
+  }
+
+  .dropdownMenu:hover .dropdownContent {
+    display: block;
+  }
+
+  .dropdownSubContent {
+    display: none;
+    padding-left: 15px;
+  }
+
+  .dropdownSubMenu:hover .dropdownSubContent {
+    display: block;
+  }
+   .cntMenu.hiddenMenu {
+    display: flex;
+  }
+
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 767px) {
+
+  .cntMenu {
+
+    overflow-y: auto;
+
+    padding-top: 100px;
+
+    justify-content: flex-start;
+
+    align-items: flex-start;
+
+    box-sizing: border-box;
+  }
+
+  .cntMenu a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dropdownMenu {
+    width: 100%;
+  }
+
+  /* HACER DROPDOWNS VERTICALES */
+  /* MOBILE DROPDOWNS */
+
+.dropdownContent {
+
+    display: block;
+
+    position: relative;
+
+    top: unset;
+    left: unset;
+
+    width: 100%;
+
+    min-width: unset;
+
+    background: transparent;
+
+    padding-left: 15px;
+
+    box-sizing: border-box;
+}
+
+.dropdownSubContent {
+
+    display: block;
+
+    width: 100%;
+
+    padding-left: 15px;
+
+    box-sizing: border-box;
+}
+  
+
+
+  
+
+
+  section h1 {
+    font-size: 2rem;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+
+  section img {
+    max-width: 95%;
+  }
+
+}
+/* --- mirar aca si trae problemas --- */
+/* --- Fix móvil: asegurar que header no tape secciones y quitar overlays problemáticos --- */
+
+/* 1) Forzar que overlay no tape (temporal y seguro) */
+body::before { display: none !important; }
+
+/* 2) Asegurar imágenes responsivas */
+img { max-width: 100%; height: auto; display: block; }
+
+/* 3) Variable para altura del header (se actualizará por JS) */
+:root { --header-height: 72px; }
+
+/* 4) Compensación para anclas y scroll */
+.centerMenu { position: sticky; top: 0; z-index: 60; }
+section { scroll-margin-top: calc(var(--header-height) + 8px); }
+
+/* 5) Asegurar que la primera sección no quede oculta */
+#inicio { padding-top: calc(var(--header-height) + 20px); }
+
+/* 6) Evitar alturas fijas que rompen el scroll en móviles */
+html, body, .contenedor, section { height: auto !important; min-height: auto !important; overflow: visible !important; }
+
+/* --- Fix móvil: asegurar que header no tape secciones y quitar overlays problemáticos --- */ 
+
+/* 1) Forzar que overlay no tape (temporal y seguro) */
+body::before { display: none !important; }
+
+/* 2) Asegurar imágenes responsivas */
+img { max-width: 100%; height: auto; display: block; }
+
+/* 3) Variable para altura del header (se actualizará por JS) */
+:root { --header-height: 72px; }
+
+/* 4) Compensación para anclas y scroll */
+.centerMenu { position: sticky; top: 0; z-index: 60; }
+section { scroll-margin-top: calc(var(--header-height) + 8px); }
+
+/* 5) Asegurar que la primera sección no quede oculta */
+#inicio { padding-top: calc(var(--header-height) + 20px); }
+
+/* 6) Evitar alturas fijas que rompen el scroll en móviles */
+html, body, .contenedor, section { height: auto !important; min-height: auto !important; overflow: visible !important; }
+
