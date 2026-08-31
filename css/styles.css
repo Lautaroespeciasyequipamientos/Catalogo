@@ -191,6 +191,15 @@ footer {
   z-index: 2;
 }
 
+.nav-menu {
+  display: none;
+}
+
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
 .cntMenu {
 
   margin: auto;
